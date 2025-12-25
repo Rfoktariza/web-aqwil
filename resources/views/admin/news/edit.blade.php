@@ -74,34 +74,74 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
             const quill = new Quill('#editor', {
                 theme: 'snow',
                 placeholder: 'Tulis konten berita di sini...',
                 modules: {
-                    toolbar: [
-                        [{
-                            header: [1, 2, 3, false]
-                        }],
-                        ['bold', 'italic', 'underline'],
-                        ['link', 'blockquote', 'code-block', 'image'],
-                        [{
-                            list: 'ordered'
-                        }, {
-                            list: 'bullet'
-                        }],
-                        ['clean']
-                    ]
+                    toolbar: {
+                        container: [
+                            [{
+                                header: [1, 2, 3, false]
+                            }],
+                            ['bold', 'italic', 'underline'],
+                            ['link', 'blockquote', 'code-block'],
+                            ['image'],
+                            [{
+                                list: 'ordered'
+                            }, {
+                                list: 'bullet'
+                            }],
+                            ['clean']
+                        ],
+                        handlers: {
+                            image: imageHandler
+                        }
+                    }
                 }
             });
 
-            // Set nilai awal jika ada
-            const hiddenInput = document.querySelector('#content');
+            const hiddenInput = document.getElementById('content');
             hiddenInput.value = quill.root.innerHTML;
 
-            // Update input hidden saat konten berubah
             quill.on('text-change', function() {
                 hiddenInput.value = quill.root.innerHTML;
             });
+
+            function imageHandler() {
+                const input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.click();
+
+                input.onchange = async () => {
+                    const file = input.files[0];
+                    if (!file) return;
+
+                    const formData = new FormData();
+                    formData.append('image', file);
+
+                    try {
+                        const response = await fetch("{{ route('admin.news.upload-image') }}", {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                            },
+                            body: formData
+                        });
+
+                        const result = await response.json();
+
+                        if (result.url) {
+                            const range = quill.getSelection();
+                            quill.insertEmbed(range.index, 'image', result.url);
+                        }
+                    } catch (error) {
+                        alert('Gagal upload gambar');
+                        console.error(error);
+                    }
+                };
+            }
         });
     </script>
 

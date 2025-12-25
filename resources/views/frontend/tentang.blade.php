@@ -65,31 +65,68 @@
     </section>
 
     <style>
+    /* 1. Penyesuaian Global (Agar tidak mepet Navbar) */
+    body {
+        /* Jarak aman dari navbar fixed */
+        padding-top: 100px !important; 
+        background-color: #ffffff;
+    }
+
+    /* 2. Styling Judul Utama */
+    h2.fw-bold {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        color: #1a2332;
+        font-size: 2rem;
+    }
+
+    /* 3. Kartu Visi, Misi, Inovasi */
+    .card {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border: none !important;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        height: 100%; /* Memastikan tinggi kartu sejajar */
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* 4. Tipografi di Dalam Kartu */
+    .card h4 {
+        font-weight: 700;
+        color: #1a2332;
+        margin-bottom: 15px;
+    }
+
+    .card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* 🔹 Responsif Mobile */
+    @media (max-width: 768px) {
+        body {
+            padding-top: 85px !important;
+        }
+
+        h2.fw-bold {
+            font-size: 1.6rem;
+        }
+
         .card {
-            transition: all 0.3s ease;
+            padding: 1.5rem;
+            margin-bottom: 15px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .icon-wrapper i {
+            font-size: 2rem !important;
         }
-
-        /* 🔹 Responsif */
-        @media (max-width: 576px) {
-            .card {
-                padding: 1.5rem;
-            }
-
-            .card .text-muted {
-                font-size: 0.85rem;
-                line-height: 1.4;
-            }
-
-            .icon-wrapper i {
-                font-size: 2rem !important;
-            }
-        }
-    </style>
+    }
+</style>
 
     <section class="py-5 nilai-section text-white text-center">
         <div class="container">
@@ -147,52 +184,15 @@
             </div>
         </div>
     </section>
-
-    <style>
-        .nilai-section {
-            background: linear-gradient(90deg, #007bff, #00b3b3);
-        }
-
-        .nilai-item {
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .nilai-icon {
-            background: rgba(255, 255, 255, 0.15);
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nilai-item:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Responsif */
-        @media (max-width: 576px) {
-
-
-            .nilai-icon {
-                width: 50px;
-                height: 50px;
-            }
-
-            .nilai-item p {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
     <section class="clients-section py-5  ">
         <div class="container">
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-4 text-lg-start text-center">
-                    <h3 class="fw-bold mb-0 title-hero">Pelanggan Kami</h3>
-                </div>
-                <div class="col-lg-8"></div>
-            </div>
+            <div class="row mb-5">
+    <div class="col-12 text-center">
+        <h3 class="fw-bold title-hero mb-2">Pelanggan Kami</h3>
+        <p class="text-muted">Telah dipercaya oleh berbagai institusi kesehatan</p>
+        <div class="mx-auto" style="width: 50px; height: 3px; background: #007bff; border-radius: 2px;"></div>
+    </div>
+    </div>
 
             <div class="row g-4 justify-content-center caption-hero">
 
@@ -233,9 +233,6 @@
                 </div>
 
             </div>
-
-
-
 
         </div>
     </section>
@@ -283,68 +280,121 @@
         });
     </script>
 
-
     <style>
-        .counter {
-            transition: all 0.3s ease;
-        }
 
-        .clients-section {
-            background: #f7f7f8
-        }
+    .nilai-section {
+        background: linear-gradient(90deg, #007bff, #00b3b3);
+        padding: 60px 0;
+    }
 
-        .letter-spacing {
-            letter-spacing: 4px;
-        }
+    .nilai-item {
+        transition: transform 0.5s ease, background 0.3s ease;
+        padding: 20px;
+    }
 
+    .nilai-icon {
+        background: rgba(255, 255, 255, 0.15);
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(4px);
+    }
+
+    .nilai-item h4 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+    }
+
+    .nilai-item p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .nilai-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .clients-section {
+        background: #f7f7f8;
+        padding: 60px 0;
+    }
+
+    .client-card {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        height: 180px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .client-card h4 {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin: 10px 0 5px 0;
+        color: #333;
+    }
+
+    .client-card .counter-value {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: #007bff;
+    }
+
+    .client-card:hover {
+        background-color: #f0f7ff;
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15);
+    }
+    
+    /* Tablet & Mobile Umum */
+    @media (max-width: 768px) {
         .client-card {
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 35px 25px;
+            height: 150px;
+        }
+    }
+
+    /* Mobile Kecil (Smartphone) */
+    @media (max-width: 576px) {
+        /* Nilai-Nilai: Paksa 1 kolom agar teks deskripsi tidak sempit */
+        .nilai-section .row > div {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .nilai-icon {
+            width: 55px;
+            height: 55px;
+        }
+
+        /* Pelanggan Kami: Tetap 2 kolom agar tidak terlalu banyak scrolling */
+        .clients-section .row {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            height: 180px;
+            flex-wrap: wrap;
+            gap: 0; /* Menggunakan gap dari grid bootstrap */
+        }
+        
+        /* Pastikan elemen col di HTML menggunakan class 'col-6' */
+        .client-card {
+            height: 140px;
+            padding: 15px;
+            margin-bottom: 15px;
         }
 
-        .client-card:hover {
-            background-color: #d8e7ff;
-            transform: translateY(-6px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nilai-icon i {
-            transition: transform 0.3s ease;
-        }
-
-        .client-card:hover .nilai-icon i {
-            transform: scale(1.1);
-        }
-
-        /* Responsif */
-        @media (max-width: 768px) {
-            .client-card {
-                height: 140px;
-                padding: 25px 20px;
-            }
-
-
-        }
-
-        @media (max-width: 576px) {
-            .client-card {
-                height: 120px;
-                padding: 20px 15px;
-            }
-
-
-        }
-    </style>
-
-
-
-
+        .client-card h4 { font-size: 0.95rem; }
+        .client-card .counter-value { font-size: 1.25rem; }
+    }
+</style>
 
 @endsection

@@ -127,4 +127,18 @@ class NewsController extends Controller
 
         return back()->with('success', 'Berita berhasil dihapus.');
     }
+
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
+        ]);
+
+        $path = $request->file('image')->store('news/content', 'public');
+
+        return response()->json([
+            'url' => asset('storage/' . $path)
+        ]);
+    }
+
 }

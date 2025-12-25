@@ -62,7 +62,6 @@
         font-size: 1rem !important; 
         line-height: 1.8; /* Lebih renggang agar lebih nyaman dibaca */
         color: #444;
-        margin-bottom: 1.5rem; 
     }
 
     /* 6. Gambar Fitur Utama (Header Berita) */
@@ -70,7 +69,7 @@
         max-height: 480px; 
         object-fit: cover;
         border-radius: 12px !important;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         width: 100%;
     }
 
@@ -96,10 +95,9 @@
     }
 
     .content h3, .content h4 {
-        margin-top: 50px; /* Jarak dari paragraf sebelumnya diperlebar */
-        margin-bottom: 20px;
+        margin-top: 20px; /* Jarak dari paragraf sebelumnya diperlebar */
         display: block;
-        font-size: 1.35rem; 
+        font-size: 1.25rem; 
     }
 
     /* 9. Artikel Lainnya (Related News) */

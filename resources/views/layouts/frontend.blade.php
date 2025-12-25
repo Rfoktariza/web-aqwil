@@ -130,129 +130,92 @@
             }
         }
 
-        /* 🦶 FOOTER */
-        footer .bg-white {
-            transition: all 0.3s ease;
+    </style>
+
+<style>
+    /* 🦶 FOOTER UTAMA */
+    footer {
+        padding-top: 80px !important; /* Memberikan jarak yang cukup agar tidak terlihat menumpuk */
+        background-color: #fcfcfc !important; /* Warna off-white agar bersih */
+        font-size: 0.95rem;
+    }
+
+    /* Menghilangkan padding atas bawaan pt-5 di HTML */
+    footer.pt-5 {
+        padding-top: 1.5rem !important; 
+    }
+
+    /* Menghilangkan garis double dan padding berlebih di container dalam */
+    footer .border-top.pt-4 {
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+
+    footer h6 {
+        font-size: 0.9rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #333;
+    }
+
+    /* Ukuran teks konten footer */
+    footer .text-muted,
+    footer ul li,
+    footer a,
+    footer address {
+        font-size: 13px !important; /* Sedikit lebih besar dari 12px agar lebih terbaca */
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+    }
+
+    footer ul {
+        margin-bottom: 0;
+    }
+
+    /* Hover effect pada link navigasi */
+    footer a.text-muted:hover {
+        color: #007bff !important;
+        text-decoration: none;
+    }
+
+    /* Ikon Sosial Media */
+    footer .bi {
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+    }
+    
+    footer .bi:hover {
+        color: #007bff !important;
+    }
+
+    /* 📱 RESPONSIVE (MOBILE & TABLET) */
+    @media (max-width: 992px) {
+        footer.pt-5 {
+            padding-top: 1rem !important;
         }
 
-        footer .bg-white:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-
-
-        /* 📱 RESPONSIVE */
-        @media (max-width: 768px) {
-
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .navbar-brand img {
-                height: 30px !important;
-            }
-
-
-        }
-
-        .navbar-nav .nav-link {
-            font-size: 0.9rem;
-            /* ubah sesuai kebutuhan, misal 0.8rem untuk lebih kecil */
-        }
-
-        /* opsional: kecilkan juga ikon sosial biar proporsional */
-        .social-icons a i {
-            font-size: 1rem;
-            /* default 1.25rem di Bootstrap Icons */
-        }
-
-        /* Default ukuran normal */
-        footer {
-            font-size: 0.95rem;
+        footer .row {
+            gap: 1.5rem 0; /* Memberi jarak antar kolom kategori saat menumpuk */
         }
 
         footer h6 {
-            font-size: 1rem;
+            font-size: 0.85rem !important;
+            margin-bottom: 0.75rem !important;
         }
 
         footer .text-muted,
         footer ul li,
         footer a {
-            font-size: 12px;
+            font-size: 12px !important;
         }
 
-        /* 🔹 Ukuran kecil (mobile) */
-        @media (max-width: 992px) {
-            footer {
-                font-size: 0.8rem;
-            }
-
-            footer h6 {
-                font-size: 0.85rem;
-                margin-bottom: 0.5rem;
-            }
-
-            footer .text-muted,
-            footer ul li,
-            footer a {
-                font-size: 0.75rem;
-            }
-
-            footer .bi {
-                font-size: 1rem !important;
-            }
-
-            footer .row {
-                gap: 1rem 0;
-                /* jarak antar kolom lebih rapat */
-            }
-
-            footer .pt-5 {
-                padding-top: 2rem !important;
-            }
-
-            footer .pb-3 {
-                padding-bottom: 1rem !important;
-            }
+        /* Copyright section lebih rapat */
+        footer .text-center.border-top {
+            margin-top: 1.5rem !important;
+            padding-top: 1rem !important;
+            font-size: 11px;
         }
-
-
-        /* 🔹 Ukuran kecil (mobile) */
-        @media (max-width: 576px) {
-            footer {
-                font-size: 0.8rem;
-            }
-
-            footer h6 {
-                font-size: 0.85rem;
-                margin-bottom: 0.5rem;
-            }
-
-            footer .text-muted,
-            footer ul li,
-            footer a {
-                font-size: 0.75rem;
-            }
-
-            footer .bi {
-                font-size: 1rem !important;
-            }
-
-            footer .row {
-                gap: 1rem 0;
-                /* jarak antar kolom lebih rapat */
-            }
-
-            footer .pt-5 {
-                padding-top: 2rem !important;
-            }
-
-            footer .pb-3 {
-                padding-bottom: 1rem !important;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -330,74 +293,76 @@
     </main>
 
     <!-- 🦶 FOOTER -->
-    <footer class="bg-light pt-5 border-top">
-        <div class="container  text-md-start">
-            <div class="border-top pt-4 pb-3">
-                <div class="row  ">
-                    
-                    <div class="col-md-4">
-                        <h6 class="fw-bold mb-3">Aqwil Medica</h6>
-                        <p class="text-muted small">{{ $webpage->footer_text ?? 'Footer text Default' }}</p>
-                        <h6 class="fw-bold mt-4 mb-1 small">Alamat</h6>
-                    <address class="text-muted small mb-0">
-                        Perum Indogreen Blok D5 No 11, Gn. Sari, Kec. Citeureup, Kab. Bogor, Jawa Barat.
-                    </address>
-                    <h6 class="fw-bold mt-3 mb-1 small">Kontak Kami</h6>
-                    <p class="text-muted small mb-1">
-                        WhatsApp: 0813 9814 2989
-                    </p>
-                    <p class="text-muted small mb-3">
-                        Email: aqwilmedica@gmail.com
-                    </p>
-                        <div class="mt-2">
-                        @if (!empty($webpage->link_linkedin))
-                            <a href="{{ $webpage->link_linkedin }}" class="text-dark text-decoration-none me-2">
-                                <i class="bi bi-instagram fs-5"></i>
-                            </a>
-                        @endif
-
-                        @if (!empty($webpage->link_facebook))
-                            <a href="{{ $webpage->link_facebook }}" class="text-dark text-decoration-none">
-                                <i class="bi bi-facebook fs-5"></i>
-                            </a>
-                        @endif
-                    </div>
-
-                    </div>
-
-                    <div class="col-md-4">
-                        <h6 class="fw-bold mb-3">Perusahaan</h6>
-                        <ul class="list-unstyled  ">
-                            <li><a href="{{ url('/') }}" class="text-muted text-decoration-none">Beranda</a></li>
-                            <li><a href="{{ url('/produk') }}" class="text-muted text-decoration-none">Produk</a></li>
-                            <li><a href="{{ url('/berita') }}" class="text-muted text-decoration-none">Berita</a></li>
-                            <li><a href="{{ url('/tentang-kami') }}" class="text-muted text-decoration-none">Tentang
-                                    Kami</a></li>
-                            <li><a href="{{ url('/kontak-kami') }}" class="text-muted text-decoration-none">Kontak
-                                    Kami</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h6 class="fw-bold mb-3">Dukungan</h6>
-                        <ul class="list-unstyled  ">
-                            <!-- <li><a href="{{ route('privasi') }}" class="text-muted text-decoration-none">Kebijakan
-                                    Privasi</a></li> -->
-                            <li><a href="#" class="text-muted text-decoration-none">Pusat Bantuan</a></li>
-                            <li><a href="#" class="text-muted text-decoration-none">Garansi</a></li>
-                            <li><a href="#" class="text-muted text-decoration-none">Pengembalian & Refund</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="text-center border-top mt-4 pt-3   text-muted">
-                    &copy; {{ date('Y') }} Aqwil Medica. Seluruh hak cipta dilindungi.
+     <footer class="bg-light border-top pt-6 pb-4">
+    <div class="container">
+        <div class="row gy-4">
+            
+            <div class="col-lg-4 col-md-12">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px;">Aqwil Medica</h6>
+                <p class="text-muted small mb-4" style="line-height: 1.8; text-align: justify;">
+                    {{ $webpage->footer_text ?? 'Produsen dan Distributor Furniture Alat Kesehatan (Alkes) di Bogor. Jual Bed Pasien, Meja Periksa, Lemari Obat, dan perlengkapan rumah sakit. Melayani pengiriman ke seluruh Indonesia.' }}
+                </p>
+                <div class="social-icons mb-3">
+                    <a href="{{ $webpage->link_instagram ?? '#' }}" class="text-dark me-3 text-decoration-none">
+                        <i class="bi bi-instagram fs-5"></i>
+                    </a>
+                    <a href="{{ $webpage->link_facebook ?? '#' }}" class="text-dark text-decoration-none">
+                        <i class="bi bi-facebook fs-5"></i>
+                    </a>
                 </div>
             </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 0.85rem;">Perusahaan</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="text-muted text-decoration-none small d-block mb-2">Beranda</a></li>     
+                    <li><a href="#" class="text-muted text-decoration-none small d-block mb-2">Produk</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none small d-block mb-2">Berita</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none small d-block mb-2">Tentang Kami</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none small d-block mb-2">Kontak Kami</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 0.85rem;">Kategori Produk</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="{{ url('/produk?category_id=1') }}" class="text-muted text-decoration-none small d-block mb-2">Bed Pasien</a></li>                     
+                    <li><a href="{{ url('/produk?category_id=3') }}" class="text-muted text-decoration-none small d-block mb-2">Kursi Periksa</a></li>     
+                    <li><a href="{{ url('/produk?category_id=5') }}" class="text-muted text-decoration-none small d-block mb-2">Bedside & Overtable</a></li>
+                    <li><a href="{{ url('/produk?category_id=2') }}" class="text-muted text-decoration-none small d-block mb-2">Meja Periksa</a></li>
+                    <li><a href="{{ url('/produk?category_id=4') }}" class="text-muted text-decoration-none small d-block mb-2">Brankar Stretcher</a></li>
+                    <li><a href="{{ url('/produk?category_id=8') }}" class="text-muted text-decoration-none small d-block mb-2">Lemari Obat</a></li>
+                    <li><a href="{{ url('/produk?category_id=9') }}" class="text-muted text-decoration-none small d-block mb-2">Trolley</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 0.85rem;">Kontak & Alamat</h6>
+                
+                <div class="d-flex mb-3">
+                    <i class="bi bi-geo-alt text-primary me-3 fs-5"></i>
+                    <address class="text-muted small mb-0" style="line-height: 1.6;">
+                        Perum Indogreen Blok D5 No 11, Gn. Sari, Kec. Citeureup, Kab. Bogor.
+                    </address>
+                </div>
+
+                <div class="d-flex mb-3 align-items-center">
+                    <i class="bi bi-whatsapp text-primary me-3 fs-5"></i>
+                    <a href="https://wa.me/6281398142989" class="text-muted text-decoration-none small">0813 9814 2989</a>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-envelope text-primary me-3 fs-5"></i>
+                    <a href="mailto:aqwilmedica@gmail.com" class="text-muted text-decoration-none small">aqwilmedica@gmail.com</a>
+                </div>
+            </div>
+
         </div>
-    </footer>
 
-
-
+        <div class="text-center border-top mt-5 pt-4 text-muted small">
+            &copy; {{ date('Y') }} PT Aqwil Medica Group. Seluruh hak cipta dilindungi.
+        </div>
+    </div>
+</footer>
 
     <script>
         // 🌫️ Navbar berubah saat scroll

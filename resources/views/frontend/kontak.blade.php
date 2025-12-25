@@ -9,7 +9,7 @@
         }
 
         .contact-card:hover {
-            transform: translateY(-5px);
+            /* transform: translateY(-5px); */
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
         }
 
@@ -77,7 +77,7 @@
         }
 
         .faq-item:hover {
-            transform: translateY(-3px);
+            /* transform: translateY(-3px); */
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
         }
 
@@ -169,14 +169,13 @@
     <section class="py-5 position-relative contact-section section-5">
         <div class="container text-center">
             {{-- 🔹 Judul & Deskripsi --}}
-            <h4 class="fw-bold mb-2 text-gradient">
-                {{ $webpage->section_contact_title ?? 'Hubungi Kami' }}
-            </h4>
-            <div class="heading-underline mx-auto mb-4"></div>
-            <p class="text-muted mb-5 fs-6" style="max-width: 600px; margin: 0 auto;">
-                {{ $webpage->section_contact_content ??
+            <div class="text-center mb-5">
+                <h4 class="fw-bold">{{ $webpage->section_contact_title ?? 'Hubungi Kami' }}</h4>
+                <p class="text-muted small">
+                    {{ $webpage->section_contact_content ??
                     'Kami siap membantu Anda. Silakan hubungi kami melalui informasi di bawah ini.' }}
-            </p>
+                </p>
+            </div>
 
             {{-- 🔹 Info Kontak + Maps --}}
             <div class="row justify-content-center align-items-stretch g-4">

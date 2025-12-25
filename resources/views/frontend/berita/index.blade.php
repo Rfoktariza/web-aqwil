@@ -37,10 +37,39 @@
 
         .card-h1 {
             line-height: 2.5rem;
+            font-size: 1.8rem
         }
 
         .pagination {
             gap: 8px;
+        }
+
+        .card.bg-dark.text-white.border-0.rounded-4.overflow-hidden {
+            min-height: 450px; /* Menambah tinggi minimal container hero */
+            display: flex;
+            align-items: center; /* Memastikan konten tetap di tengah secara vertikal */
+        }
+
+        .card-img-overlay {
+            padding: 3rem !important; /* Memberikan ruang lebih luas antara teks dan tepi gambar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%); /* Overlay agar teks lebih mudah dibaca */
+        }
+
+        /* Penyesuaian tombol hero agar lebih menonjol */
+        .btn-primary.rounded-3.px-4.py-2 {
+            width: fit-content;
+            padding: 12px 30px !important;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Tipografi Hero agar lebih tegas */
+        .card-h1 {
+            margin-bottom: 1.5rem;
+            max-width: 80%; /* Mencegah judul terlalu panjang ke kanan */
         }
 
         .page-link {
@@ -148,6 +177,18 @@
             .badge {
                 font-size: 0.8rem;
                 font-weight: 200;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card.bg-dark.text-white.border-0.rounded-4.overflow-hidden {
+                min-height: 350px;
+            }
+            .card-img-overlay {
+                padding: 1.5rem !important;
+            }
+            .card-h1 {
+                max-width: 100%;
             }
         }
 

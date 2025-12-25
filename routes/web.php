@@ -46,6 +46,9 @@ Route::prefix('admin')->as('admin.')->middleware(['auth'])->group(function () {
     Route::post('/about', [AboutUsController::class, 'update'])->name('about.update');
 
     Route::resource('news', NewsController::class);
+    Route::post('news/upload-image', [NewsController::class, 'uploadImage'])
+        ->name('news.upload-image');
+
 
     Route::get('/settings', [SettingController::class, 'index'])
         ->name('settings');
@@ -69,7 +72,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
 
 require __DIR__ . '/auth.php';
