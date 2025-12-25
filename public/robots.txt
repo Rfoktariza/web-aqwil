@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /produk
+Allow: /berita
+Allow: /tentang-kami
+Allow: /kontak-kami
+
+Disallow: /admin
+Disallow: /login
+Disallow: /register
+Disallow: /database
+Disallow: /config
+
+Sitemap: https://aqwilmedica.com/sitemap.xml

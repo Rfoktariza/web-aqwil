@@ -1,0 +1,7 @@
+Deny from all
+# Menolak akses ke semua file di folder ini
+Order deny,allow
+Deny from all
+
+# Mencegah listing direktori (agar folder tidak bisa di-list)
+Options -Indexes
